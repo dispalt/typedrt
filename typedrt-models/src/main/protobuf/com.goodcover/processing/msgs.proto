@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.goodcover.processing.serialization;
+import "scalapb/scalapb.proto";
+
+option (scalapb.options) = {
+//  // All classes that extend a sealed trait need to be in the same Scala
+//  // file, so we set single_file to true.
+  single_file: true
+
+  preserve_unknown_fields: false
+
+
+  //
+//  import: "shared.proto.GenericTypeMapper._"
+};
+
+message KeepRunningPB {
+  int32 workerId = 1;
+}

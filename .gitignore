@@ -1,0 +1,54 @@
+# sbt
+lib_managed
+target
+
+# Worksheets (Eclipse or IntelliJ)
+
+# Eclipse
+.cache*
+.classpath
+.project
+.scala_dependencies
+.settings
+.target
+.worksheet
+
+# IntelliJ
+.idea*
+
+# ENSIME
+.ensime
+.ensime_lucene
+.ensime_cache
+
+# Mac
+.DS_Store
+
+# Akka Persistence
+journal
+snapshots
+
+# Log files
+*.log
+
+# Node modules
+node_modules/
+
+# VSCode
+.vscode
+.metals
+.bloop
+
+# Hydra
+.hydra
+project/hydra.sbt
+local.sbt
+
+# Specifics
+server-full/src/main/resources/generated/marathon.json
+protobufdefs/
+.bsp
+
+# PDF Testing @TODO[Nikita,Remove] Tired of accidentally committing test pdf output...
+tmp
+.bsp
