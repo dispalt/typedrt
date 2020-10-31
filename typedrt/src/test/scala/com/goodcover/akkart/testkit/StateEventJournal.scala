@@ -2,7 +2,7 @@ package com.goodcover.akkart.testkit
 
 import akka.NotUsed
 import akka.stream.scaladsl.Source
-import cats.Monad
+import cats.{Monad, Order}
 import cats.data.{Chain, NonEmptyChain}
 import cats.effect.Sync
 import cats.effect.concurrent.Ref
@@ -14,6 +14,8 @@ import com.goodcover.typedrt.data.{Committable, ConsumerId, EventTag, Tagging}
 import monocle.Lens
 
 object StateEventJournal {
+
+  implicit val orderInstance: Order[EventTag] = Order.fromOrdering(Ordering[String].on(_.value))
 
   final case class State[K, E](
     eventsByKey: Map[K, Chain[E]],

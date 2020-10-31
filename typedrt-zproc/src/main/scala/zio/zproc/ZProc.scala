@@ -1,9 +1,9 @@
-package com.goodcover.cadaver
+package zio.zproc
 
 import java.util.UUID
 
-import com.goodcover.cadaver.ZProc._
-import com.goodcover.cadaver.internal.JournalEvent._
+import zio.zproc.ZProc._
+import zio.zproc.internal.JournalEvent._
 import zio.ZIO.ifM
 import zio.clock.Clock
 import zio.duration.Duration
@@ -29,22 +29,22 @@ abstract class ZProc[-R, +E, +St, +A] { self =>
 
 object ZProc {
 
-  private[cadaver] case class FlatMap[R, E, St, A, A0](r: ZProc[R, E, St, A], k: A => ZProc[R, E, St, A0])
+  private[zproc] case class FlatMap[R, E, St, A, A0](r: ZProc[R, E, St, A], k: A => ZProc[R, E, St, A0])
       extends ZProc[R, E, St, A0]
 
-  private[cadaver] case class MapFn[R, E, St, A, A0](r: ZProc[R, E, St, A], k: A => A0) extends ZProc[R, E, St, A0]
+  private[zproc] case class MapFn[R, E, St, A, A0](r: ZProc[R, E, St, A], k: A => A0) extends ZProc[R, E, St, A0]
 
-  private[cadaver] case class Pure[R, E, St, A](pure: A) extends ZProc[R, E, St, A]
+  private[zproc] case class Pure[R, E, St, A](pure: A) extends ZProc[R, E, St, A]
 
-  private[cadaver] case class Await[R, E, St](condition: St => ZIO[R, E, Boolean]) extends ZProc[R, E, St, Unit]
+  private[zproc] case class Await[R, E, St](condition: St => ZIO[R, E, Boolean]) extends ZProc[R, E, St, Unit]
 
-  private[cadaver] case class Lift[R, E, St, A](z: ZIO[R, E, A]) extends ZProc[R, E, St, A]
+  private[zproc] case class Lift[R, E, St, A](z: ZIO[R, E, A]) extends ZProc[R, E, St, A]
 
-  private[cadaver] case class MapState[R, E, St](fn: St => St) extends ZProc[R, E, St, Unit]
+  private[zproc] case class MapState[R, E, St](fn: St => St) extends ZProc[R, E, St, Unit]
 
-  private[cadaver] case class SetState[R, E, St](st: St) extends ZProc[R, E, St, Unit]
+  private[zproc] case class SetState[R, E, St](st: St) extends ZProc[R, E, St, Unit]
 
-  private[cadaver] case class Delay[R, St](duration: Duration) extends ZProc[R, Nothing, St, Unit]
+  private[zproc] case class Delay[R, St](duration: Duration) extends ZProc[R, Nothing, St, Unit]
 
   def pure[St, A](pure: A): ZProc[Any, Nothing, St, A] = Pure(pure)
 

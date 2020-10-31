@@ -1,4 +1,4 @@
-package com.goodcover.cadaver.internal
+package zio.zproc.internal
 
 import java.time.Instant
 import java.util.UUID

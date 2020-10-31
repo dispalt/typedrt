@@ -1,6 +1,6 @@
-package com.goodcover.cadaver
+package zio.zproc
 
-import com.goodcover.cadaver.internal.{JournalEvent, ProcessContext}
+import zio.zproc.internal.{JournalEvent, ProcessContext}
 import zio.clock.Clock
 import zio.{Promise, Queue, Ref, UIO, ZIO}
 

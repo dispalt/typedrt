@@ -7,6 +7,8 @@ object Library {
   final val Scala213 = "2.13.3"
   final val Scala    = Scala213
 
+  final val KindProjector = "0.11.0"
+
   private object Version {
 
     final val Akka            = "2.6.10"
@@ -188,10 +190,17 @@ object Library {
     val `typedrt-models` = libraryDependencies ++= Seq(Library.scalaPbProto)
 
     val `typedrt-zproc` = libraryDependencies ++= Seq(
-        Library.zioTestSbt,
-        Library.zioTest,
-        Library.zioTestMag,
-      )
+      Library.akkaC,
+      Library.akkaCS,
+      Library.akkaCSM,
+      Library.`tagless-redux`,
+      Library.`tagless-redux-kencoder`,
+      Library.`tagless-redux-kryo`,
+      Library.zio,
+      Library.zioTestSbt,
+      Library.zioTest,
+      Library.zioTestMag,
+    )
   }
 
 }

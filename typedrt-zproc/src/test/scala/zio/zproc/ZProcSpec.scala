@@ -1,16 +1,14 @@
-package com.goodcover.cadaver
+package zio.zproc
 
 import java.util.concurrent.TimeUnit
 
-import cats.tagless.autoFunctorK
-import StatefulRuntime.{SignalHandler, SignalServerFn}
-import zio.duration.Duration
-import zio._
 import zio.clock.Clock
-import zio.console._
+import zio.duration.Duration
+import zio.test.Assertion.equalTo
+import zio.test.environment.TestClock
 import zio.test._
-import zio.test.Assertion._
-import zio.test.environment._
+import zio.zproc.StatefulRuntime.SignalServerFn
+import zio.{ZEnv, ZIO}
 
 object ZProcSpec extends DefaultRunnableSpec {
 

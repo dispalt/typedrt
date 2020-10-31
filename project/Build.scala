@@ -22,7 +22,7 @@ object Build extends AutoPlugin {
     Seq(
       // Core settings
       organization := "com.goodcover.core",
-      scalaVersion := Version.Scala213,
+      scalaVersion := Library.Scala213,
       // format: off
         scalacOptions ++= Seq(
           "-deprecation",
@@ -90,12 +90,12 @@ object Build extends AutoPlugin {
       },
       unmanagedSourceDirectories.in(Compile) := Vector(scalaSource.in(Compile).value),
       unmanagedSourceDirectories.in(Test) := Vector(scalaSource.in(Test).value),
-      addCompilerPlugin("org.typelevel" % "kind-projector" % Version.KindProjector cross CrossVersion.full),
+      addCompilerPlugin("org.typelevel" % "kind-projector" % Library.KindProjector cross CrossVersion.full),
       libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
       // Compiling for some reason does not work with this... Investigate later.
       publishArtifact in (Compile, packageDoc) := false,
       sources in (Compile, doc) := Seq.empty,
-      crossScalaVersions := Seq(Version.Scala)
+      crossScalaVersions := Seq(Library.Scala)
     ) ++ extras
 
   lazy val extras: Seq[Setting[_]] = Seq(scalacOptions := {

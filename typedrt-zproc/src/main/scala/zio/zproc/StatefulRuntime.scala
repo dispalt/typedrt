@@ -1,7 +1,7 @@
-package com.goodcover.cadaver
+package zio.zproc
 
 import cats.~>
-import com.goodcover.cadaver.internal.{JournalEvent, ProcessContext}
+import zio.zproc.internal.{JournalEvent, ProcessContext}
 import zio._
 import zio.clock.Clock
 

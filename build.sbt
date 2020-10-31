@@ -34,8 +34,8 @@ lazy val `typedrt-models` = project
   .settings(Library.Projects.`typedrt-models`)
   .settings(Build.pbSettings)
 
-
 lazy val `typedrt-zproc` = project
   .in(file("typedrt-zproc"))
   .settings(Library.Projects.`typedrt-zproc`)
   .settings(Build.pbSettings)
+  .dependsOn(fxn, `typedrt-models`)

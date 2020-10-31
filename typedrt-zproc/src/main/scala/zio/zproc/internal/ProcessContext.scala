@@ -1,4 +1,4 @@
-package com.goodcover.cadaver.internal
+package zio.zproc.internal
 
 import zio.{Chunk, Promise, UIO}
 

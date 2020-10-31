@@ -1,4 +1,4 @@
-package com.goodcover.cadaver.internal
+package zio.zproc.internal
 
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
@@ -14,11 +14,11 @@ import cats.effect.Effect
 import cats.implicits._
 import com.dispalt.tagless.util.WireProtocol
 import com.dispalt.tagless.util.WireProtocol.{Encoder, Invocation}
-import com.goodcover.cadaver.internal.AkkaPersistenceRuntimeActor.{CommandResult, HandleCommand, WrappedCause}
-import com.goodcover.cadaver.internal.SnapshotPolicy.{EachNumberOfEvents, Never}
+import zio.zproc.internal.AkkaPersistenceRuntimeActor.{CommandResult, HandleCommand, WrappedCause}
+import zio.zproc.internal.SnapshotPolicy.{EachNumberOfEvents, Never}
 import com.goodcover.akkart.msg.PersistRepr
 import com.goodcover.akkart.serialization.PersistCodec
-import com.goodcover.cadaver.ZProc
+import zio.zproc.ZProc
 import com.goodcover.encoding.KeyCodec
 import com.goodcover.typedrt.data.Tagging
 import com.goodcover.typedrt.serialization.MarkerMessage
